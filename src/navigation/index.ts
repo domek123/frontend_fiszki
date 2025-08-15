@@ -1,2 +1,2 @@
-export * from "./DrawerNavigation";
+export * from "./BottomTabNavigation";
 export * from "./StackNavigation";

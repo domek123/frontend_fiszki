@@ -7,10 +7,17 @@
     "buttonText": "Zaloguj"
   },
   "homePage": {
+    "welcome": "Cześć",
+    "flashcardsLeft": "Dziś zostało {{count}} fiszek do nauki",
     "yourCourses": "Twoje kursy"
   },
   "settingsPage": {
-    "title": "Ustawenia"
+    "title": "Ustawienia"
+  },
+  "navigation": {
+    "home": "Główna",
+    "progress": "Postęp",
+    "settings": "Ustawienia"
   },
   "addCourse": {
     "title": "Dodaj kurs",
