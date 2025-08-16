@@ -1,4 +1,4 @@
-import { Text, ScrollView, ActivityIndicator } from "react-native";
+import { Text, ScrollView, ActivityIndicator, StyleSheet } from "react-native";
 import { Divider } from "@/components";
 import { useTheme } from "@react-navigation/native";
 import React from "react";
@@ -12,8 +12,19 @@ export const Home = ({ navigation }) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
 
-  const { sets, isLoading } = useSets();
-
+  // const { sets, isLoading } = useSets();
+  const sets = [
+    {
+      id: "1",
+      name: "Course 1",
+      languageFrom: "gb",
+      languageTo: "fr",
+      createdAt: "12.02.20",
+      updatedAt: "12.02.20",
+      count: 10,
+    },
+  ];
+  const isLoading = false;
   return (
     <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <WelcomeText />
