@@ -6,7 +6,6 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 const Tab = createBottomTabNavigator();
 
 export const BottomTabNavigation = () => {
-  const { t } = useTranslation();
   return (
     <Tab.Navigator
       initialRouteName="Home"

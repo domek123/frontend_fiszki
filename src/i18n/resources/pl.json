@@ -19,11 +19,35 @@
     "progress": "Postęp",
     "settings": "Ustawienia"
   },
-  "addCourse": {
-    "title": "Dodaj kurs",
-    "courseName": "Nazwa kursu",
-    "courseDescription": "Opis kursu",
-    "courseLanguage": "Język kursu",
-    "buttonText": "Dodaj"
+  "createSet": {
+    "title": "Utwórz Zestaw",
+    "name": "Nazwa",
+    "description": "Opis (opcjonalnie)",
+    "language": "Język",
+    "selectLanguage": "Wybierz język",
+    "buttonText": "Utwórz",
+    "addFlashcards": "Dodaj Fiszki"
+  },
+  "languages": {
+    "en": "Angielski",
+    "de": "Niemiecki",
+    "es": "Hiszpański",
+    "fr": "Francuski",
+    "it": "Włoski",
+    "ru": "Rosyjski",
+    "uk": "Ukraiński",
+    "sv": "Szwedzki",
+    "no": "Norweski",
+    "nl": "Niderlandzki",
+    "pt": "Portugalski",
+    "pl": "Polski",
+    "ja": "Japoński",
+    "zh": "Chiński (Mandaryński)",
+    "ar": "Arabski",
+    "cs": "Czeski",
+    "fi": "Fiński",
+    "da": "Duński",
+    "hu": "Węgierski",
+    "ko": "Koreański"
   }
 }

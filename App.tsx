@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ThemeProvider, useTheme } from "./src/context";
 
 import "./src/i18n";
-import { myTheme } from "./theme";
 import { StackNavigation } from "./src/navigation";
 
 const queryClient = new QueryClient({
@@ -21,12 +21,15 @@ const queryClient = new QueryClient({
 });
 
 export default function App() {
+  const { theme } = useTheme();
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
-        <NavigationContainer theme={myTheme}>
-          <StackNavigation />
-        </NavigationContainer>
+        <ThemeProvider>
+          <NavigationContainer theme={theme}>
+            <StackNavigation />
+          </NavigationContainer>
+        </ThemeProvider>
       </QueryClientProvider>
     </SafeAreaProvider>
   );
