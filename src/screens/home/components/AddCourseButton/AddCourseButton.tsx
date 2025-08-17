@@ -1,4 +1,4 @@
-import { useTheme } from "@context/ThemeContext";
+import { useTheme } from "@context/ThemeContext.context";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -20,7 +20,7 @@ export const AddCourseButton = () => {
         bottom: 20,
         right: 20,
       }}
-      onPress={() => navigation.navigate("CreateSet")}
+      onPress={() => navigation.navigate("CreateSetFlow")}
     >
       <Icon name="add" size={24} color={"white"} />
     </TouchableOpacity>

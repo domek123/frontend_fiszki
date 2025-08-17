@@ -1,4 +1,4 @@
-import { useTheme } from "@/context";
+import { useCreateSetContext, useTheme } from "@/context";
 import { Button } from "@components/Button";
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import { LanguageSelect } from "./components";
@@ -10,12 +10,22 @@ export const CreateSet = () => {
   const { theme } = useTheme();
   const styles = createStyles(theme.colors);
 
+  const { setData, handleChange } = useCreateSetContext();
+
   return (
     <View style={styles.container}>
       <Text>{t("createSet.name")}</Text>
-      <TextInput style={styles.textInput} />
+      <TextInput
+        style={styles.textInput}
+        value={setData.name}
+        onChangeText={(value) => handleChange("name", value)}
+      />
       <Text>{t("createSet.description")}</Text>
-      <TextInput style={styles.textInput} />
+      <TextInput
+        style={styles.textInput}
+        value={setData.description}
+        onChangeText={(value) => handleChange("description", value)}
+      />
       <Text>{t("createSet.language")}</Text>
       <LanguageSelect />
       <Button

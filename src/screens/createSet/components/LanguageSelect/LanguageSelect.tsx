@@ -4,8 +4,11 @@ import { View, Text, StyleSheet } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { languageCodes } from "./constants"; // Assuming you have a constants file with language codes
+import { useCreateSetContext } from "@context/CreateSet.context";
 export const LanguageSelect = () => {
   const { t } = useTranslation();
+
+  const { setData, handleChange } = useCreateSetContext();
 
   const data = languageCodes.map((code) => ({
     id: code,
@@ -15,9 +18,10 @@ export const LanguageSelect = () => {
   return (
     <SelectDropdown
       data={data}
-      onSelect={(item, index) => {
-        console.log(item, index);
+      onSelect={(item, _) => {
+        handleChange("languageFrom", item.id);
       }}
+      defaultValue={data.find((item) => item.id === setData.languageFrom)}
       renderButton={(selectedItem, _) => {
         return (
           <View style={styles.dropdown}>
@@ -29,9 +33,14 @@ export const LanguageSelect = () => {
           </View>
         );
       }}
-      renderItem={(item, _) => {
+      renderItem={(item, _, isSelected) => {
         return (
-          <View style={styles.dropdownItemStyle}>
+          <View
+            style={{
+              ...styles.dropdownItemStyle,
+              ...(isSelected && { backgroundColor: "lightgray" }),
+            }}
+          >
             <Text>{item.name}</Text>
           </View>
         );
