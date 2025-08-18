@@ -3,9 +3,11 @@ import { Button } from "@components/Button";
 import { TextInput, View, Text, StyleSheet } from "react-native";
 import { LanguageSelect } from "./components";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "@react-navigation/native";
 
 export const CreateSet = () => {
   const { t } = useTranslation();
+  const navigation = useNavigation();
 
   const { theme } = useTheme();
   const styles = createStyles(theme.colors);
@@ -14,7 +16,9 @@ export const CreateSet = () => {
 
   return (
     <View style={styles.container}>
-      <Text>{t("createSet.name")}</Text>
+      <Text>
+        {t("createSet.name")} {setData.flashcards.length}
+      </Text>
       <TextInput
         style={styles.textInput}
         value={setData.name}
@@ -39,7 +43,7 @@ export const CreateSet = () => {
         text={t("createSet.addFlashcards")}
         bgColor={theme.colors.button}
         action={() => {
-          console.log("dodano fiszki");
+          navigation.navigate("CreateFlashcards");
         }}
       />
     </View>

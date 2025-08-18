@@ -1,5 +1,5 @@
 export const languageCodes = [
-  "en",
+  "gb",
   "de",
   "es",
   "fr",

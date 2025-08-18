@@ -28,8 +28,15 @@
     "buttonText": "Utwórz",
     "addFlashcards": "Dodaj Fiszki"
   },
+  "createFlashcard": {
+    "title": "Utwórz Fiszkę",
+    "front": "Słowo",
+    "back": "Definicja",
+    "addImage": "Dodaj obraz",
+    "buttonText": "Utwórz fiszkę"
+  },
   "languages": {
-    "en": "Angielski",
+    "gb": "Angielski",
     "de": "Niemiecki",
     "es": "Hiszpański",
     "fr": "Francuski",
