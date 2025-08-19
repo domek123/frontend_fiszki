@@ -42,19 +42,18 @@
     "fr": "Francuski",
     "it": "Włoski",
     "ru": "Rosyjski",
-    "uk": "Ukraiński",
-    "sv": "Szwedzki",
+    "ua": "Ukraiński",
+    "se": "Szwedzki",
     "no": "Norweski",
     "nl": "Niderlandzki",
     "pt": "Portugalski",
     "pl": "Polski",
-    "ja": "Japoński",
-    "zh": "Chiński (Mandaryński)",
-    "ar": "Arabski",
-    "cs": "Czeski",
+    "jp": "Japoński",
+    "cn": "Chiński",
+    "cz": "Czeski",
     "fi": "Fiński",
-    "da": "Duński",
+    "dk": "Duński",
     "hu": "Węgierski",
-    "ko": "Koreański"
+    "kr": "Koreański"
   }
 }
