@@ -4,13 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { CreateSet } from "./CreateSet";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useTranslation } from "react-i18next";
-import { useCreateSetContext } from "@context/CreateSet.context";
+
 import { Flashcard } from "./components/Flashcard/Flashcard";
-import { useMemo } from "react";
+import { useCreateSetContext } from "@context/CreateSet.context";
 
 export const CreateSetPage = () => {
   const { t } = useTranslation();
-  const { flashcards } = useCreateSetContext();
+  const { flashcardsData } = useCreateSetContext();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,7 +21,7 @@ export const CreateSetPage = () => {
         <HeaderText text={t("createSet.title")} />
       </View>
       <CreateSet />
-      {flashcards.length > 0 && (
+      {flashcardsData.length > 0 && (
         <Flashcard
           id={0}
           front={t("createFlashcard.front")}
@@ -30,7 +30,7 @@ export const CreateSetPage = () => {
         />
       )}
       <ScrollView style={{ gap: 8 }}>
-        {flashcards.map((flashcard, index) => (
+        {flashcardsData.map((flashcard, index) => (
           <Flashcard key={index} {...flashcard} id={index} delete={true} />
         ))}
       </ScrollView>

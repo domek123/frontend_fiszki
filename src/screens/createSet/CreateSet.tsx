@@ -12,13 +12,10 @@ export const CreateSet = () => {
   const { theme } = useTheme();
   const styles = createStyles(theme.colors);
 
-  const { setData, handleChange } = useCreateSetContext();
-
+  const { setData, handleChange, handleCreateSet } = useCreateSetContext();
   return (
     <View style={styles.container}>
-      <Text>
-        {t("createSet.name")} {setData.flashcards.length}
-      </Text>
+      <Text>{t("createSet.name")}</Text>
       <TextInput
         style={styles.textInput}
         value={setData.name}
@@ -36,7 +33,7 @@ export const CreateSet = () => {
         text={t("createSet.buttonText")}
         bgColor={theme.colors.card}
         action={() => {
-          console.log("utworzono");
+          handleCreateSet();
         }}
       />
       <Button

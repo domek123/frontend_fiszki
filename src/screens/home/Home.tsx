@@ -1,7 +1,7 @@
 import { Text, ScrollView, ActivityIndicator, StyleSheet } from "react-native";
 import { Divider } from "@/components";
-import { useTheme } from "@react-navigation/native";
-import React from "react";
+import { useFocusEffect, useTheme } from "@react-navigation/native";
+import React, { useCallback } from "react";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AddCourseButton, CourseView, WelcomeText } from "./components";
@@ -12,19 +12,14 @@ export const Home = ({ navigation }) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
 
-  // const { sets, isLoading } = useSets();
-  const sets = [
-    {
-      id: "1",
-      name: "Course 1",
-      languageFrom: "gb",
-      languageTo: "fr",
-      createdAt: "12.02.20",
-      updatedAt: "12.02.20",
-      count: 10,
-    },
-  ];
-  const isLoading = false;
+  const { sets, isLoading, refetch } = useSets();
+
+  useFocusEffect(
+    useCallback(() => {
+      refetch();
+    }, [])
+  );
+
   return (
     <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <WelcomeText />

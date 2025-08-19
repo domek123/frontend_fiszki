@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { useFlashcards } from "./useFlashcards";
+import { createSet } from "@api/sets.api";
 import { useNavigation } from "@react-navigation/native";
-import { useMemo, useState } from "react";
 export const useCreateSet = () => {
+  const flashcards = useFlashcards();
   const navigation = useNavigation();
 
   const [setData, setSetData] = useState({
@@ -8,50 +11,30 @@ export const useCreateSet = () => {
     description: "",
     languageFrom: "",
     languageTo: "pl",
-    flashcards: [],
   });
-  const [flashcardName, setFlashcardName] = useState("");
-  const [flashcardDefinition, setFlashcardDefinition] = useState("");
 
   const handleChange = (field: string, value: string) => {
     setSetData((prev) => ({ ...prev, [field]: value }));
   };
+  const handleCreateSet = async () => {
+    if (setData.name && setData.languageFrom) {
+      const result = await createSet({
+        user_id: "5e11c274-74b0-4cd4-8e7d-e96b6ceeef0f",
+        ...setData,
+        flashcards: flashcards.flashcards,
+      });
 
-  const addFlashCard = () => {
-    if (flashcardName && flashcardDefinition) {
-      setSetData((prev) => ({
-        ...prev,
-        flashcards: [
-          ...prev.flashcards,
-          { front: flashcardName, back: flashcardDefinition },
-        ],
-      }));
-      navigation.navigate("CreateSet");
-      setFlashcardName("");
-      setFlashcardDefinition("");
+      if (result) {
+        console.log("Set created successfully");
+      }
+      navigation.navigate("Home");
     }
   };
 
-  const deleteFromFlashcard = (id: number) => {
-    setSetData((prev) => ({
-      ...prev,
-      flashcards: prev.flashcards.filter((_, index) => index !== id),
-    }));
-  };
-
-  const flashcards = useMemo(() => {
-    return [...setData.flashcards].reverse();
-  }, [setData.flashcards]);
-
   return {
+    ...flashcards,
     setData,
     handleChange,
-    flashcardName,
-    setFlashcardName,
-    flashcardDefinition,
-    addFlashCard,
-    setFlashcardDefinition,
-    deleteFromFlashcard,
-    flashcards,
+    handleCreateSet,
   };
 };

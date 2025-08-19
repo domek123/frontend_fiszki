@@ -22,7 +22,7 @@ export const BottomTabNavigation = () => {
       }}
     >
       <Tab.Screen
-        name="abb"
+        name="Home"
         component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (

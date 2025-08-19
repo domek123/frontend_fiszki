@@ -4,9 +4,10 @@ import { fetchSets } from "@/api";
 export const useSets = () => {
   const [sets, setSets] = useState([]);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["sets"],
     queryFn: fetchSets,
+    refetchOnWindowFocus: true,
   });
 
   useEffect(() => {
@@ -15,5 +16,5 @@ export const useSets = () => {
     }
   }, [data]);
 
-  return { sets, isLoading };
+  return { sets, isLoading, refetch };
 };
