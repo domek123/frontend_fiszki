@@ -11,7 +11,7 @@ import { useCreateSetContext } from "@context/CreateSet.context";
 export const CreateSetPage = () => {
   const { t } = useTranslation();
   const { flashcardsData } = useCreateSetContext();
-
+  console.log(flashcardsData);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -29,9 +29,9 @@ export const CreateSetPage = () => {
           delete={false}
         />
       )}
-      <ScrollView style={{ gap: 8 }}>
-        {flashcardsData.map((flashcard, index) => (
-          <Flashcard key={index} {...flashcard} id={index} delete={true} />
+      <ScrollView>
+        {flashcardsData.map((flashcard) => (
+          <Flashcard key={flashcard.id} {...flashcard} delete={true} />
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    gap: 20,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    marginBottom: 20,
   },
 });

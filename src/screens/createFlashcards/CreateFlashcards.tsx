@@ -9,13 +9,15 @@ import { useTranslation } from "react-i18next";
 export const CreateFlashcards = () => {
   const { t } = useTranslation();
 
-  const { setData } = useCreateSetContext();
+  const { setData, editId } = useCreateSetContext();
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.center}>
         <View style={styles.header}>
-          <HeaderText text={t("createFlashcard.title")} />
+          <HeaderText
+            text={t(`createFlashcard.${editId ? "editTitle" : "title"}`)}
+          />
           {setData.languageFrom && (
             <SvgUri
               uri={`https://hatscripts.github.io/circle-flags/flags/${setData.languageFrom}.svg`}

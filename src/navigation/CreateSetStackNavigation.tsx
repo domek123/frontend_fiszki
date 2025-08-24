@@ -9,7 +9,7 @@ export default function CreateSetStack() {
     <CreateSetProvider>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="CreateSet" component={CreateSetPage} />
-        <Stack.Screen name="CreateFlashcards" component={CreateFlashcards} />
+        <Stack.Screen name="CreateFlashcard" component={CreateFlashcards} />
       </Stack.Navigator>
     </CreateSetProvider>
   );

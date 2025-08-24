@@ -30,10 +30,12 @@
   },
   "createFlashcard": {
     "title": "Utwórz Fiszkę",
+    "editTitle": "Edytuj Fiszkę",
     "front": "Słowo",
     "back": "Definicja",
     "addImage": "Dodaj obraz",
-    "buttonText": "Utwórz fiszkę"
+    "createFlashcardText": "Utwórz fiszkę",
+    "editFlashcardText": "Edytuj fiszke"
   },
   "languages": {
     "gb": "Angielski",

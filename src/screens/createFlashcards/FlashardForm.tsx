@@ -1,4 +1,4 @@
-import { Button } from "@components/Button";
+import { TextButton } from "@/components";
 import { useCreateSetContext, useTheme } from "@/context";
 import { useTranslation } from "react-i18next";
 import { StyleSheet, TextInput, View, Text } from "react-native";
@@ -10,9 +10,10 @@ export const FlashcardForm = () => {
   const {
     flashcardName,
     flashcardDefinition,
-    addFlashCard,
+    handleFlashCard,
     setFlashcardName,
     setFlashcardDefinition,
+    editId,
   } = useCreateSetContext();
 
   return (
@@ -29,10 +30,14 @@ export const FlashcardForm = () => {
         onChangeText={setFlashcardDefinition}
         style={styles.textInput}
       />
-      <Button
-        text={t("createFlashcard.buttonText")}
+      <TextButton
+        text={t(
+          `createFlashcard.${
+            editId ? "editFlashcardText" : "createFlashcardText"
+          }`
+        )}
         bgColor={theme.colors.button}
-        action={addFlashCard}
+        action={handleFlashCard}
       />
     </View>
   );

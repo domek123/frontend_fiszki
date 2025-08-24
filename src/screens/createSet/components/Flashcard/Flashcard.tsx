@@ -1,18 +1,31 @@
 import { useCreateSetContext } from "@context/CreateSet.context";
 import { FlashcardType } from "./Flashcard.types";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 export const Flashcard = (props: FlashcardType) => {
-  const { deleteFlashcard } = useCreateSetContext();
+  const { deleteFlashcard, setupFlashcard, flashcardsData } =
+    useCreateSetContext();
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => setupFlashcard(props.id)}
+    >
       <Text>{props.front}</Text>
       <Text>{props.back}</Text>
-      <TouchableOpacity onPress={() => deleteFlashcard(props.id)}>
-        {props.delete && <Icon name="delete" size={24} />}
+      <TouchableOpacity
+        onPress={(event) => {
+          event.stopPropagation();
+          deleteFlashcard(props.id);
+        }}
+      >
+        {props.delete ? (
+          <Icon name="delete" size={24} />
+        ) : (
+          <Text>{flashcardsData.length}</Text>
+        )}
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 
