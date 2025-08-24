@@ -1,8 +1,8 @@
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
-import { ButtonProps } from "./Button.types";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { TextButtonProps } from "./TextButton.types";
 import { useTheme } from "@react-navigation/native";
 
-export const Button = ({ text, bgColor, action }: ButtonProps) => {
+export const TextButton = ({ text, bgColor, action }: TextButtonProps) => {
   const { colors } = useTheme();
   return (
     <TouchableOpacity
