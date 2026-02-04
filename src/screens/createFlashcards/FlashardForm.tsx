@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 12,
     borderRadius: 8,
-    backgroundColor: "white",
   },
   textInput: {
     borderWidth: 1,

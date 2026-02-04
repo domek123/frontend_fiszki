@@ -2,13 +2,15 @@ import { useCreateSetContext } from "@context/CreateSet.context";
 import { FlashcardType } from "./Flashcard.types";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import {useTheme} from "@react-navigation/native";
 export const Flashcard = (props: FlashcardType) => {
   const { deleteFlashcard, setupFlashcard, flashcardsData } =
     useCreateSetContext();
+  const {colors} = useTheme();
 
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container,{backgroundColor:colors.card}]}
       onPress={() => setupFlashcard(props.id)}
     >
       <Text>{props.front}</Text>
@@ -32,7 +34,6 @@ export const Flashcard = (props: FlashcardType) => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -45,6 +46,5 @@ const styles = StyleSheet.create({
   },
   back: {
     fontSize: 16,
-    color: "#666",
   },
 });

@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useTranslation } from "react-i18next";
 import { Home, Progress, Settings } from "@/screens";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
@@ -11,8 +10,6 @@ export const BottomTabNavigation = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#FFFFFF",
-        tabBarInactiveTintColor: "#eac492ff",
         tabBarShowLabel: false,
         tabBarStyle: {
           paddingBottom: 5,

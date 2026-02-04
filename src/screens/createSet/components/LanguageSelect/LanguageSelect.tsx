@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
   },
   dropdownMenuStyle: {
     marginTop: -35,
-    backgroundColor: "#fff",
     borderRadius: 8,
     height: 200,
   },

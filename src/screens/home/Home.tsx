@@ -1,54 +1,47 @@
-import { Text, ScrollView, ActivityIndicator, StyleSheet } from "react-native";
+import {Text, ScrollView, ActivityIndicator, StyleSheet, View} from "react-native";
 import { Divider } from "@/components";
 import { useFocusEffect, useTheme } from "@react-navigation/native";
 import React, { useCallback } from "react";
 
 import { SafeAreaView } from "react-native-safe-area-context";
-import { AddCourseButton, CourseView, WelcomeText } from "./components";
+import { AddCourseButton, CourseView, Header } from "./components";
 import { useTranslation } from "react-i18next";
 import { useSets } from "./hooks";
 
 export const Home = ({ navigation }) => {
-  const { colors } = useTheme();
-  const { t } = useTranslation();
-
   const { sets, isLoading, refetch } = useSets();
 
   useFocusEffect(
     useCallback(() => {
       refetch();
-    }, [])
+    }, []),
   );
 
   return (
-    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
-      <WelcomeText />
-      <Divider color={colors.card} />
-      <Text style={styles.courseCount}>
-        {t("homePage.yourCourses")} ({sets.length})
-      </Text>
-      {isLoading && <ActivityIndicator />}
-      {!isLoading && (
-        <ScrollView showsHorizontalScrollIndicator={true}>
-          {sets.map((course) => (
-            <CourseView key={course.id} {...course} />
-          ))}
-        </ScrollView>
-      )}
-      <AddCourseButton />
-    </SafeAreaView>
+          <SafeAreaView style={{flex:1}}>
+              <Header/>
+              <View style={styles.container}>
+                  {isLoading && <ActivityIndicator />}
+                  {!isLoading && (
+                      <ScrollView showsHorizontalScrollIndicator={true}>
+                          {sets.map((course) => (
+                              <CourseView key={course.id} {...course} />
+                          ))}
+                      </ScrollView>
+                  )}
+              </View>
+              <AddCourseButton />
+          </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
     paddingBottom: 0,
     gap: 8,
   },
   courseCount: {
-    color: "#342D25",
     fontSize: 20,
     fontWeight: "bold",
   },

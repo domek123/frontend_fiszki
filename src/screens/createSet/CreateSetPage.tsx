@@ -2,16 +2,16 @@ import { HeaderText } from "@/components";
 import { StyleSheet, View, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CreateSet } from "./CreateSet";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import { useTranslation } from "react-i18next";
 
 import { Flashcard } from "./components/Flashcard/Flashcard";
 import { useCreateSetContext } from "@context/CreateSet.context";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 export const CreateSetPage = () => {
   const { t } = useTranslation();
   const { flashcardsData } = useCreateSetContext();
-  console.log(flashcardsData);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>

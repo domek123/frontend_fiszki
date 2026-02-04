@@ -33,7 +33,7 @@ export const CreateSet = () => {
       <LanguageSelect />
       <TextButton
         text={t("createSet.buttonText")}
-        bgColor={theme.colors.card}
+        bgColor={theme.colors.notification}
         action={() => {
           handleCreateSet();
         }}
@@ -56,7 +56,7 @@ const createStyles = (colors) =>
       padding: 16,
       gap: 12,
       borderRadius: 8,
-      backgroundColor: colors.border,
+      backgroundColor: colors.card,
     },
     textInput: {
       borderWidth: 1,

@@ -1,11 +1,22 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { CourseViewType } from "./CourseView.types";
 import React from "react";
 import { SvgUri } from "react-native-svg";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { useNavigation } from "@react-navigation/native";
+
 export const CourseView = (props: CourseViewType) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() =>
+        navigation.navigate("SetDetails", {
+          setId: props.id,
+          flashcards_amount: props.count,
+        })
+      }
+    >
       <SvgUri
         uri={`https://hatscripts.github.io/circle-flags/flags/${props.languageFrom}.svg`}
         width="35"
@@ -28,13 +39,13 @@ export const CourseView = (props: CourseViewType) => {
           color: "rgb(242, 242, 242)",
         }}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 15,
     borderRadius: 8,
     backgroundColor: "#ffffff",
     marginBottom: 10,
@@ -49,6 +60,5 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 14,
-    color: "#666",
   },
 });

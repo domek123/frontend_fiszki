@@ -1,7 +1,7 @@
 import axios from "axios";
 import Config from "react-native-config";
 
-const API_URL = Config.API_URL || "http://192.168.0.221:3000";
+const API_URL = Config.API_URL || "http://192.168.0.102:3000";
 
 console.log(API_URL);
 export const api = axios.create({
@@ -21,5 +21,5 @@ api.interceptors.response.use(
       console.error("Data:", error.response.data);
     }
     return Promise.reject(error);
-  }
+  },
 );

@@ -5,7 +5,6 @@ export const HeaderText = ({ text }: { text: string }) => {
 
 const styles = StyleSheet.create({
   headerText: {
-    color: "#342D25",
     fontSize: 30,
     fontWeight: "bold",
   },
