@@ -1,49 +1,50 @@
-import { useCreateSetContext, useTheme } from "@/context";
-import { TextButton } from "@/components";
-import { TextInput, View, Text, StyleSheet } from "react-native";
-import { LanguageSelect } from "./components";
-import { useTranslation } from "react-i18next";
-import { useNavigation } from "@react-navigation/native";
+import { useCreateSetContext, useTheme } from '@/context';
+import { TextButton } from '@/components';
+import { TextInput, View, Text, StyleSheet } from 'react-native';
+import { LanguageSelect } from './components';
+import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { CreateSetStackParamList } from '@navigation/navigation.types';
 
 export const CreateSet = () => {
   const { t } = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useNavigation<NativeStackNavigationProp<CreateSetStackParamList>>();
 
   const { theme } = useTheme();
-  const styles = createStyles(theme.colors);
+  const { setData, handleChange, handleCreateSet, resetFlashCard } = useCreateSetContext();
 
-  const { setData, handleChange, handleCreateSet, resetFlashCard } =
-    useCreateSetContext();
+  const styles = createStyles(theme.colors);
 
   return (
     <View style={styles.container}>
-      <Text>{t("createSet.name")}</Text>
+      <Text>{t('createSet.name')}</Text>
       <TextInput
         style={styles.textInput}
         value={setData.name}
-        onChangeText={(value) => handleChange("name", value)}
+        onChangeText={(value) => handleChange('name', value)}
       />
-      <Text>{t("createSet.description")}</Text>
+      <Text>{t('createSet.description')}</Text>
       <TextInput
         style={styles.textInput}
         value={setData.description}
-        onChangeText={(value) => handleChange("description", value)}
+        onChangeText={(value) => handleChange('description', value)}
       />
-      <Text>{t("createSet.language")}</Text>
+      <Text>{t('createSet.language')}</Text>
       <LanguageSelect />
       <TextButton
-        text={t("createSet.buttonText")}
+        text={t('createSet.buttonText')}
         bgColor={theme.colors.notification}
         action={() => {
           handleCreateSet();
         }}
       />
       <TextButton
-        text={t("createSet.addFlashcards")}
+        text={t('createSet.addFlashcards')}
         bgColor={theme.colors.button}
         action={() => {
           resetFlashCard();
-          navigation.navigate("CreateFlashcard");
+          navigation.navigate('CreateFlashcard');
         }}
       />
     </View>
@@ -61,6 +62,6 @@ const createStyles = (colors) =>
     textInput: {
       borderWidth: 1,
       borderRadius: 8,
-      borderColor: "lightgray",
+      borderColor: 'lightgray',
     },
   });

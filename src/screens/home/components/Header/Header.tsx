@@ -1,26 +1,24 @@
-import {  useTranslation } from "react-i18next";
-import { View, Text } from "react-native";
-import {useTheme} from "@react-navigation/native";
+import { useTranslation } from 'react-i18next';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTheme } from '@/context';
 
 export const Header = () => {
   const { t } = useTranslation();
-    const {colors} = useTheme();
+  const { theme } = useTheme();
 
   return (
-    <View style={[styles.headerView,{backgroundColor:colors.primary}]}>
-    <Text style={styles.headerText}>{t("homePage.yourCourses")}</Text>
+    <View style={[styles.headerView, { backgroundColor: theme.colors.primary }]}>
+      <Text style={styles.headerText}>{t('homePage.yourCourses')}</Text>
     </View>
   );
 };
 
-const styles = {
-    headerView:{
-        padding:10,
-        paddingTop: 20,
-        paddingBottom: 15,
-    },
-    headerText: {
-        fontSize: 30,
-        fontWeight: 600,
-    }
-}
+const styles = StyleSheet.create({
+  headerView: {
+    padding: 15,
+  },
+  headerText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});

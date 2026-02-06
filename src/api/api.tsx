@@ -1,13 +1,12 @@
-import axios from "axios";
-import Config from "react-native-config";
-
-const API_URL = Config.API_URL || "http://192.168.0.102:3000";
+import axios from 'axios';
+import { API_URL } from '@/config';
 
 console.log(API_URL);
+
 export const api = axios.create({
   baseURL: API_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   timeout: 10000,
 });
@@ -15,10 +14,10 @@ export const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error("API Error:", error.message);
+    console.error('API Error:', error.message);
     if (error.response) {
-      console.error("Status:", error.response.status);
-      console.error("Data:", error.response.data);
+      console.error('Status:', error.response.status);
+      console.error('Data:', error.response.data);
     }
     return Promise.reject(error);
   },

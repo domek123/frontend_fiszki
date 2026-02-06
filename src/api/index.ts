@@ -1,2 +1,2 @@
-export * from "./flashcards.api";
-export * from "./sets.api";
+export * from './useSets';
+export * from './useFlashcards';

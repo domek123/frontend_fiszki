@@ -1,7 +1,8 @@
-import { TextButton } from "@/components";
+import {ImageInput, TextButton} from "@/components";
 import { useCreateSetContext, useTheme } from "@/context";
 import { useTranslation } from "react-i18next";
 import { StyleSheet, TextInput, View, Text } from "react-native";
+import {useState} from "react";
 
 export const FlashcardForm = () => {
   const { t } = useTranslation();
@@ -16,20 +17,23 @@ export const FlashcardForm = () => {
     editId,
   } = useCreateSetContext();
 
+    const [imageUri, setImageUri] = useState<string | null>(null);
+
   return (
     <View style={styles.container}>
-      <Text>{t("createFlashcard.front")}</Text>
+      <Text style={{fontWeight:"bold"}}>{t("createFlashcard.front")}</Text>
       <TextInput
         value={flashcardName}
         onChangeText={setFlashcardName}
         style={styles.textInput}
       />
-      <Text>{t("createFlashcard.back")}</Text>
+      <Text style={{fontWeight:"bold"}}>{t("createFlashcard.back")}</Text>
       <TextInput
         value={flashcardDefinition}
         onChangeText={setFlashcardDefinition}
         style={styles.textInput}
       />
+        <ImageInput onImageSelected={(uri) => setImageUri(uri)}/>
       <TextButton
         text={t(
           `createFlashcard.${

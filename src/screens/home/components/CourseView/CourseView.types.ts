@@ -1,4 +1,5 @@
 export type CourseViewType = {
+  id: string;
   name: string;
   description?: string;
   languageFrom: string;

@@ -9,7 +9,9 @@
   "homePage": {
     "welcome": "Cześć",
     "flashcardsLeft": "Dziś zostało {{count}} fiszek do nauki",
-    "yourCourses": "Twoje kursy"
+    "yourCourses": "Twoje kursy",
+    "error": "Nie można załadować kursów. Spróbuj ponownie później.",
+    "noCourses": "Nie masz jeszcze żadnych kursów. Utwórz swój pierwszy zestaw!"
   },
   "settingsPage": {
     "title": "Ustawienia"

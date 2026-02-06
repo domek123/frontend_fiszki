@@ -1,10 +1,10 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider, useTheme } from "./src/context";
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider, useTheme } from './src/context';
 
-import "./src/i18n";
-import { StackNavigation } from "./src/navigation";
+import './src/i18n';
+import { StackNavigation } from './src/navigation';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,12 +21,11 @@ const queryClient = new QueryClient({
 });
 
 export default function App() {
-  const { theme } = useTheme();
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <NavigationContainer theme={theme}>
+          <NavigationContainer>
             <StackNavigation />
           </NavigationContainer>
         </ThemeProvider>

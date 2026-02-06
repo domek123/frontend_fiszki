@@ -16,9 +16,10 @@
     "@react-navigation/drawer": "^6.7.2",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
-    "@tanstack/react-query": "^5.85.3",
+    "@tanstack/react-query": "^5.90.20",
     "axios": "^1.11.0",
     "expo": "^54.0.33",
+    "expo-image-picker": "~17.0.10",
     "expo-status-bar": "~3.0.9",
     "i18next": "^23.15.2",
     "lodash": "^4.17.21",
@@ -41,6 +42,7 @@
     "@babel/core": "^7.20.0",
     "@react-native-community/cli": "latest",
     "@types/react": "~19.1.10",
+    "prettier": "^3.8.1",
     "typescript": "~5.9.2"
   },
   "private": true

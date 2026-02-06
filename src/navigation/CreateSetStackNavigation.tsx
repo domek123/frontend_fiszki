@@ -1,6 +1,6 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { CreateSetProvider } from "@/context"; // <- Twój provider// jeśli będziesz mieć kolejne ekrany
-import { CreateSetPage, CreateFlashcards } from "@/screens";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CreateSetProvider } from '@/context';
+import { CreateSetPage, CreateFlashcards } from '@/screens';
 
 const Stack = createNativeStackNavigator();
 

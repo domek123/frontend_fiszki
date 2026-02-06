@@ -1,34 +1,54 @@
-// theme.ts
+export interface ThemeColors {
+  primary: string;
+  background: string;
+  card: string;
+  text: string;
+  border: string;
+  notification: string;
+  button: string;
+  accent: string;
+  success: string;
+  link: string;
+  highlight: string;
+}
 
-export const lightTheme = {
+export interface ThemeType {
+  dark: boolean;
+  colors: ThemeColors;
+}
+
+/* 🌤 LIGHT THEME */
+export const lightTheme: ThemeType = {
   dark: false,
   colors: {
-    primary: "#6D28D9", // Głęboki fiolet (Vivid Violet)
-    background: "#F1F5F9", // Jasny błękitny szary (Slate 100)
-    card: "#FFFFFF", // Czysta biel dla kontrastu
-    text: "#0F172A", // Bardzo ciemny granat (Slate 900)
-    border: "#E2E8F0", // Delikatny szary
-    notification: "#F43F5E", // Neonowy koral (do błędów)
-    button: "#6D28D9", // Fioletowy przycisk
-    accent: "#06B6D4", // Cyan - dla dodatkowych elementów
-    success: "#10B981", // Szmaragdowy
+    primary: '#4F46E5', // Indigo – główny kolor akcji
+    background: '#F8FAFC', // Jasne, neutralne tło
+    card: '#FFFFFF', // Karty fiszek
+    text: '#0F172A', // Główny tekst
+    border: '#E5E7EB', // Delikatne separatory
+    notification: '#EF4444', // Error / powiadomienia
+    button: '#4F46E5', // Spójne z primary
+    success: '#22C55E', // Poprawna odpowiedź
+    accent: '#38BDF8', // Info / akcent UI
+    link: '#2563EB', // Linki
+    highlight: '#EEF2FF', // Podświetlenia, aktywna fiszka
   },
 };
 
-export const darkTheme = {
+/* 🌙 DARK THEME */
+export const darkTheme: ThemeType = {
   dark: true,
   colors: {
-    primary: "#A78BFA", // Neonowy lawendowy (świetlisty na ciemnym tle)
-    background: "#020617", // Bardzo głęboka czerń (Slate 950)
-    card: "#0F172A", // Ciemny granat (Slate 900) - powierzchnia fiszek
-    text: "#F8FAFC", // Lodowa biel (Slate 50)
-    border: "#1E293B", // Stalowy granat (Slate 800)
-    notification: "#FB7185", // Cyber różowy (Soft Rose) - dla "Nie znam"
-    button: "#7C3AED", // Intensywny fiolet
-    link: "#22D3EE", // Neonowy turkus (Cyan 400)
-    success: "#34D399", // Neonowa mięta - dla "Znam"
-    highlight: "#1E1B4B", // Bardzo ciemny fioletowy odcień dla zaznaczeń
+    primary: '#6366F1', // Jaśniejszy indigo pod dark mode
+    background: '#020617', // Bardzo ciemne tło (focus)
+    card: '#0F172A', // Karty
+    text: '#F8FAFC', // Jasny tekst
+    border: '#1E293B', // Subtelne obramowania
+    notification: '#FB7185', // Error w dark
+    button: '#6366F1',
+    success: '#34D399',
+    accent: '#38BDF8',
+    link: '#38BDF8',
+    highlight: '#1E293B', // Zaznaczenie / focus
   },
 };
-
-export type ThemeType = typeof lightTheme;
